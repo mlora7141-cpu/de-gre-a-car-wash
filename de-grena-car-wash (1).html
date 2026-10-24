@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De Greña Car Wash | Lavado profesional para todo tipo de vehículos</title>
+<meta name="description" content="Lavado profesional de autos, SUVs, camionetas, motos y vehículos pesados. Agenda tu cita en línea.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+tailwind.config = { theme: { extend: {
+  fontFamily: { sans: ['Montserrat', 'system-ui', 'sans-serif'] },
+  colors: { navy: '#000000', deep: '#0a0a0a', aqua: '#e11d2e', carbon: '#0a0a0a', mist: '#111111' }
+}}}
+</script>
+<style>
+  html { scroll-padding-top: 76px; }
+  .hero-bg { background-image: linear-gradient(110deg, rgba(0,0,0,.94) 25%, rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1800&q=80'); background-size: cover; background-position: center; background-color: #000; }
+  .img-card { background-color: #111; background-size: cover; background-position: center; }
+  .field { width: 100%; border: 1.5px solid #dc2626; border-radius: .6rem; padding: .7rem .9rem; background: #0a0a0a; color: #fff; color-scheme: dark; transition: border-color .15s, box-shadow .15s; }
+  .field:focus { outline: none; border-color: #fff; box-shadow: 0 0 0 3px rgba(225,29,46,.45); }
+  .field::placeholder { color: #737373; }
+  .field option { background: #0a0a0a; color: #fff; }
+  .field.invalid { border-color: #fca5a5; box-shadow: 0 0 0 2px #dc2626; }
+  .svc:has(input:checked) { border-color: #fff; background: rgba(225,29,46,.25); }
+  @keyframes pop { from { transform: scale(.85); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+  .pop { animation: pop .35s ease-out; }
+  @media (prefers-reduced-motion: reduce) { .pop { animation: none } html { scroll-behavior: auto } }
+</style>
+</head>
+<body class="font-sans text-white bg-black antialiased">
+
+<!-- HEADER -->
+<header class="fixed inset-x-0 top-0 z-50 bg-black/95 backdrop-blur border-b-2 border-red-600">
+  <div class="max-w-6xl mx-auto px-4 h-[68px] flex items-center justify-between">
+    <a href="#inicio" class="flex items-center gap-2 text-white font-extrabold text-lg">
+      <span class="grid place-items-center w-9 h-9 rounded-lg bg-aqua text-white"><i class="fa-solid fa-droplet"></i></span>
+      De Greña <span class="text-aqua font-semibold">Car Wash</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-200">
+      <a class="hover:text-aqua" href="#inicio">Inicio</a>
+      <a class="hover:text-aqua" href="#servicios">Servicios</a>
+      <a class="hover:text-aqua" href="#precios">Precios</a>
+      <a class="hover:text-aqua" href="#citas">Citas</a>
+      <a class="hover:text-aqua" href="#ubicacion">Ubicación</a>
+      <a href="#citas" class="bg-aqua text-white font-bold px-5 py-2.5 rounded-lg hover:bg-red-700 transition">Agendar Cita</a>
+    </nav>
+    <button id="menuBtn" class="md:hidden text-white text-2xl w-10 h-10" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <nav id="mobileMenu" class="hidden md:hidden bg-black border-t border-red-600 px-4 pb-4 text-slate-100 font-medium">
+    <a class="block py-3 border-b border-red-600/40" href="#inicio">Inicio</a>
+    <a class="block py-3 border-b border-red-600/40" href="#servicios">Servicios</a>
+    <a class="block py-3 border-b border-red-600/40" href="#precios">Precios</a>
+    <a class="block py-3 border-b border-red-600/40" href="#citas">Citas</a>
+    <a class="block py-3 border-b border-red-600/40" href="#ubicacion">Ubicación</a>
+    <a href="#citas" class="mt-4 block text-center bg-aqua text-white font-bold py-3 rounded-lg">Agendar Cita</a>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="inicio" class="hero-bg min-h-[100svh] flex items-center pt-[68px]">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <p class="inline-flex items-center gap-2 bg-white/10 text-aqua text-sm font-semibold px-4 py-1.5 rounded-full mb-6"><i class="fa-solid fa-star"></i> Lavado profesional sin esperas largas</p>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight max-w-3xl">Tu vehículo impecable, como recién salido del concesionario</h1>
+    <p class="mt-6 text-lg text-slate-200 max-w-xl leading-relaxed">Lavamos desde motores y motocicletas hasta camionetas y vehículos pesados. Elige tu servicio, reserva tu hora y nosotros nos encargamos del resto.</p>
+    <div class="mt-9 flex flex-col sm:flex-row gap-4">
+      <a href="#citas" class="bg-aqua text-white font-bold text-lg px-8 py-4 rounded-xl text-center hover:bg-red-700 transition shadow-lg shadow-aqua/20">Reservar mi turno</a>
+      <a href="#precios" class="border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-xl text-center hover:bg-white/10 transition">Ver precios</a>
+    </div>
+    <dl class="mt-14 grid grid-cols-3 gap-6 max-w-lg text-white">
+      <div><dt class="text-sm text-slate-300">Autos lavados</dt><dd class="text-2xl font-extrabold">+5,000</dd></div>
+      <div><dt class="text-sm text-slate-300">Servicio express</dt><dd class="text-2xl font-extrabold">30 min</dd></div>
+      <div><dt class="text-sm text-slate-300">Clientes felices</dt><dd class="text-2xl font-extrabold">98%</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- VEHÍCULOS -->
+<section id="vehiculos" class="py-20 bg-mist">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Lavamos todo lo que ruede</h2>
+    <p class="mt-3 text-neutral-300 max-w-xl">Equipo y productos adecuados para cada tipo de vehículo.</p>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <article class="rounded-2xl overflow-hidden bg-neutral-900 border-2 border-red-600">
+        <div class="img-card h-44" style="background-image:url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=75')"></div>
+        <div class="p-5"><i class="fa-solid fa-motorcycle text-2xl text-aqua"></i><h3 class="mt-2 font-bold text-lg text-white">Motos y cuadraciclos</h3><p class="text-sm text-neutral-300 mt-1">Lavado cuidadoso de motor, cadena y carrocería.</p></div>
+      </article>
+      <article class="rounded-2xl overflow-hidden bg-neutral-900 border-2 border-red-600">
+        <div class="img-card h-44" style="background-image:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=700&q=75')"></div>
+        <div class="p-5"><i class="fa-solid fa-car-side text-2xl text-aqua"></i><h3 class="mt-2 font-bold text-lg text-white">Autos sedán</h3><p class="text-sm text-neutral-300 mt-1">Brillo y limpieza total, por dentro y por fuera.</p></div>
+      </article>
+      <article class="rounded-2xl overflow-hidden bg-neutral-900 border-2 border-red-600">
+        <div class="img-card h-44" style="background-image:url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=700&q=75')"></div>
+        <div class="p-5"><i class="fa-solid fa-truck-pickup text-2xl text-aqua"></i><h3 class="mt-2 font-bold text-lg text-white">SUVs y camionetas</h3><p class="text-sm text-neutral-300 mt-1">Más espacio, más detalle: baúl, tapicería y chasis.</p></div>
+      </article>
+      <article class="rounded-2xl overflow-hidden bg-neutral-900 border-2 border-red-600">
+        <div class="img-card h-44" style="background-image:url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=700&q=75')"></div>
+        <div class="p-5"><i class="fa-solid fa-truck text-2xl text-aqua"></i><h3 class="mt-2 font-bold text-lg text-white">Pesados y otros</h3><p class="text-sm text-neutral-300 mt-1">Camiones, vans y vehículos especiales, con cotización.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria" class="py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl font-extrabold">Vehículos y motores que hemos dejado como nuevos</h2>
+    <p class="mt-3 text-neutral-300 max-w-xl">Desde el motor hasta la última curva de la carrocería.</p>
+    <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+      <figure class="relative overflow-hidden rounded-xl border-2 border-red-600 bg-neutral-900 aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=75" alt="Motor de auto" loading="lazy" class="w-full h-full object-cover" onerror="this.closest('figure').remove()">
+        <figcaption class="absolute inset-x-0 bottom-0 bg-black/75 text-sm font-semibold px-3 py-2">Motor de auto</figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-xl border-2 border-red-600 bg-neutral-900 aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=600&q=75" alt="Detalle de motor" loading="lazy" class="w-full h-full object-cover" onerror="this.closest('figure').remove()">
+        <figcaption class="absolute inset-x-0 bottom-0 bg-black/75 text-sm font-semibold px-3 py-2">Detalle de motor</figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-xl border-2 border-red-600 bg-neutral-900 aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=600&q=75" alt="Motor limpio" loading="lazy" class="w-full h-full object-cover" onerror="this.closest('figure').remove()">
+        <figcaption class="absolute inset-x-0 bottom-0 bg-black/75 text-sm font-semibold px-3 py-2">Motor limpio</figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-xl border-2 border-red-600 bg-neutral-900 aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=75" alt="Mecánica a la vista" loading="lazy" class="w-full h-full object-cover" onerror="this.closest('figure').remove()">
+        <figcaption class="absolute inset-x-0 bottom-0 bg-black/75 text-sm font-semibold px-3 py-2">Mecánica a la vista</figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-xl border-2 border-red-600 bg-neutral-900 aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=600&q=75" alt="Lavado a mano" loading="lazy" class="w-full h-full object-cover" onerror="this.closest('figure').remove()">
+        <figcaption class="absolute inset-x-0 bottom-0 bg-black/75 text-sm font-semibold px-3 py-2">Lavado a mano</figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-xl border-2 border-red-600 bg-neutral-900 aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=600&q=75" alt="Espuma activa" loading="lazy" class="w-full h-full object-cover" onerror="this.closest('figure').remove()">
+        <figcaption class="absolute inset-x-0 bottom-0 bg-black/75 text-sm font-semibold px-3 py-2">Espuma activa</figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-xl border-2 border-red-600 bg-neutral-900 aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=75" alt="Motocicleta" loading="lazy" class="w-full h-full object-cover" onerror="this.closest('figure').remove()">
+        <figcaption class="absolute inset-x-0 bottom-0 bg-black/75 text-sm font-semibold px-3 py-2">Motocicleta</figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-xl border-2 border-red-600 bg-neutral-900 aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=75" alt="Auto deportivo" loading="lazy" class="w-full h-full object-cover" onerror="this.closest('figure').remove()">
+        <figcaption class="absolute inset-x-0 bottom-0 bg-black/75 text-sm font-semibold px-3 py-2">Auto deportivo</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS / PRECIOS -->
+<section id="servicios" class="py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Servicios de lavado</h2>
+    <p class="mt-3 text-neutral-300 max-w-xl">Cada paquete incluye secado a mano. Los precios son para un auto sedán y varían según el tamaño del vehículo.</p>
+    <div id="precios" class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="border-2 border-red-600 bg-neutral-900 rounded-2xl p-6 flex flex-col">
+        <i class="fa-solid fa-droplet text-3xl text-aqua"></i>
+        <h3 class="mt-3 text-xl font-bold text-white">Lavado sencillo</h3>
+        <p class="text-3xl font-extrabold mt-2">RD$ 400</p>
+        <ul class="mt-4 space-y-2 text-sm text-neutral-300 flex-1">
+          <li><i class="fa-solid fa-check text-aqua mr-2"></i>Lavado exterior con shampoo</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Enjuague y secado</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Limpieza de cristales</li>
+        </ul>
+      </article>
+      <article class="border-2 border-red-600 bg-neutral-900 rounded-2xl p-6 flex flex-col">
+        <i class="fa-solid fa-bolt text-3xl text-aqua"></i>
+        <h3 class="mt-3 text-xl font-bold text-white">Lavado express</h3>
+        <p class="text-3xl font-extrabold mt-2">RD$ 600</p>
+        <ul class="mt-4 space-y-2 text-sm text-neutral-300 flex-1">
+          <li><i class="fa-solid fa-check text-aqua mr-2"></i>Todo el lavado sencillo</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Aspirado interior</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Brillo de llantas y tablero</li>
+        </ul>
+      </article>
+      <article class="rounded-2xl p-6 flex flex-col bg-black text-white border-2 border-red-600 ring-4 ring-red-600/40 relative">
+        <span class="absolute -top-3 right-5 bg-aqua text-white text-xs font-bold px-3 py-1 rounded-full">Más pedido</span>
+        <i class="fa-solid fa-gem text-3xl text-aqua"></i>
+        <h3 class="mt-3 text-xl font-bold">Lavado profundo y detallado</h3>
+        <p class="text-3xl font-extrabold mt-2">RD$ 1,500</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-200 flex-1">
+          <li><i class="fa-solid fa-check text-aqua mr-2"></i>Todo el lavado express</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Encerado y pulido ligero</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Limpieza profunda de plásticos y puertas</li>
+        </ul>
+      </article>
+      <article class="border-2 border-red-600 bg-neutral-900 rounded-2xl p-6 flex flex-col">
+        <i class="fa-solid fa-gears text-3xl text-aqua"></i>
+        <h3 class="mt-3 text-xl font-bold text-white">Lavado de motor</h3>
+        <p class="text-3xl font-extrabold mt-2">RD$ 700</p>
+        <ul class="mt-4 space-y-2 text-sm text-neutral-300 flex-1">
+          <li><i class="fa-solid fa-check text-aqua mr-2"></i>Desengrasante seguro</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Protección de componentes eléctricos</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Acabado con protector</li>
+        </ul>
+      </article>
+      <article class="border-2 border-red-600 bg-neutral-900 rounded-2xl p-6 flex flex-col">
+        <i class="fa-solid fa-road text-3xl text-aqua"></i>
+        <h3 class="mt-3 text-xl font-bold text-white">Lavado de chasis</h3>
+        <p class="text-3xl font-extrabold mt-2">RD$ 800</p>
+        <ul class="mt-4 space-y-2 text-sm text-neutral-300 flex-1">
+          <li><i class="fa-solid fa-check text-aqua mr-2"></i>Remoción de barro y sal</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Lavado a presión de bajos</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Limpieza de pasos de rueda</li>
+        </ul>
+      </article>
+      <article class="border-2 border-red-600 bg-neutral-900 rounded-2xl p-6 flex flex-col">
+        <i class="fa-solid fa-couch text-3xl text-aqua"></i>
+        <h3 class="mt-3 text-xl font-bold text-white">Tapicería</h3>
+        <p class="text-3xl font-extrabold mt-2">RD$ 2,000</p>
+        <ul class="mt-4 space-y-2 text-sm text-neutral-300 flex-1">
+          <li><i class="fa-solid fa-check text-aqua mr-2"></i>Lavado de asientos y alfombras</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Eliminación de manchas y olores</li><li><i class="fa-solid fa-check text-aqua mr-2"></i>Secado profundo</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CITAS -->
+<section id="citas" class="py-20 bg-neutral-950 border-y-2 border-red-600">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white text-center">Agenda tu cita</h2>
+    <p class="mt-3 text-slate-300 text-center">Completa el formulario y te confirmamos por WhatsApp.</p>
+
+    <div class="mt-10 bg-neutral-900 border-2 border-red-600 rounded-2xl p-6 sm:p-9 shadow-2xl">
+      <form id="bookingForm" novalidate class="space-y-6">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="nombre" class="block text-sm font-semibold mb-1.5">Nombre completo</label>
+            <input id="nombre" name="nombre" type="text" class="field" placeholder="Ej: Juan Pérez" autocomplete="name">
+            <p class="err hidden text-sm text-red-400 mt-1">Escribe tu nombre completo.</p>
+          </div>
+          <div>
+            <label for="telefono" class="block text-sm font-semibold mb-1.5">Teléfono / WhatsApp</label>
+            <input id="telefono" name="telefono" type="tel" class="field" placeholder="809-000-0000" autocomplete="tel">
+            <p class="err hidden text-sm text-red-400 mt-1">Escribe un teléfono válido (mínimo 10 dígitos).</p>
+          </div>
+        </div>
+
+        <div>
+          <label for="vehiculo" class="block text-sm font-semibold mb-1.5">Tipo de vehículo</label>
+          <select id="vehiculo" name="vehiculo" class="field">
+            <option value="">Selecciona un tipo…</option>
+            <option value="motor">Motor / Motocicleta / Cuadraciclo</option>
+            <option value="auto">Auto sedán</option>
+            <option value="suv">SUV / Camioneta / Pickup</option>
+            <option value="otro">Vehículo pesado u otro</option>
+          </select>
+          <p class="err hidden text-sm text-red-400 mt-1">Selecciona el tipo de vehículo.</p>
+        </div>
+
+        <fieldset>
+          <legend class="block text-sm font-semibold mb-2">Tipo de lavado</legend>
+          <div class="grid sm:grid-cols-2 gap-3" id="servicios-radio"></div>
+          <p class="err hidden text-sm text-red-400 mt-1">Elige un tipo de lavado.</p>
+        </fieldset>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="fecha" class="block text-sm font-semibold mb-1.5">Fecha</label>
+            <input id="fecha" name="fecha" type="date" class="field">
+            <p class="err hidden text-sm text-red-400 mt-1">Elige una fecha desde hoy en adelante. Los martes estamos cerrados.</p>
+          </div>
+          <div>
+            <label for="hora" class="block text-sm font-semibold mb-1.5">Hora</label>
+            <select id="hora" name="hora" class="field">
+              <option value="">Selecciona una hora…</option>
+            </select>
+            <p class="err hidden text-sm text-red-400 mt-1">Elige una hora.</p>
+          </div>
+        </div>
+
+        <div>
+          <label for="notas" class="block text-sm font-semibold mb-1.5">Notas adicionales <span class="font-normal text-neutral-400">(opcional)</span></label>
+          <textarea id="notas" name="notas" rows="3" class="field" placeholder="Ej: manchas en el asiento trasero, vehículo con vidrios polarizados…"></textarea>
+        </div>
+
+        <div id="estimado" class="hidden bg-black border border-red-600 rounded-xl px-5 py-4 flex items-center justify-between">
+          <span class="text-sm font-semibold text-neutral-300">Precio estimado</span>
+          <span id="estimadoValor" class="text-2xl font-extrabold text-white"></span>
+        </div>
+
+        <button type="submit" class="w-full bg-aqua text-white font-extrabold text-lg py-4 rounded-xl hover:bg-red-700 transition">Confirmar y Agendar Cita</button>
+      </form>
+
+      <div id="exito" class="hidden text-center py-8 pop" role="status">
+        <div class="mx-auto w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 grid place-items-center text-4xl"><i class="fa-solid fa-check"></i></div>
+        <h3 class="mt-5 text-2xl font-extrabold text-white">¡Cita agendada!</h3>
+        <p id="exitoTexto" class="mt-3 text-neutral-300 leading-relaxed"></p>
+        <button id="otraCita" class="mt-7 border-2 border-red-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-red-600 transition">Agendar otra cita</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section id="beneficios" class="py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">¿Por qué elegir De Greña Car Wash?</h2>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div><div class="w-14 h-14 rounded-xl bg-black border-2 border-red-600 text-aqua grid place-items-center text-2xl"><i class="fa-solid fa-flask"></i></div><h3 class="mt-4 font-bold text-lg text-white">Productos de alta calidad</h3><p class="mt-1 text-sm text-neutral-300">Shampoos y ceras que cuidan la pintura y los plásticos.</p></div>
+      <div><div class="w-14 h-14 rounded-xl bg-black border-2 border-red-600 text-aqua grid place-items-center text-2xl"><i class="fa-solid fa-user-check"></i></div><h3 class="mt-4 font-bold text-lg text-white">Personal capacitado</h3><p class="mt-1 text-sm text-neutral-300">Un equipo con experiencia en todo tipo de vehículos.</p></div>
+      <div><div class="w-14 h-14 rounded-xl bg-black border-2 border-red-600 text-aqua grid place-items-center text-2xl"><i class="fa-solid fa-mug-hot"></i></div><h3 class="mt-4 font-bold text-lg text-white">Área de espera cómoda</h3><p class="mt-1 text-sm text-neutral-300">Wi-Fi gratis y café mientras esperas tu vehículo.</p></div>
+      <div><div class="w-14 h-14 rounded-xl bg-black border-2 border-red-600 text-aqua grid place-items-center text-2xl"><i class="fa-solid fa-stopwatch"></i></div><h3 class="mt-4 font-bold text-lg text-white">Rapidez garantizada</h3><p class="mt-1 text-sm text-neutral-300">Con cita, tu turno empieza a la hora reservada.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section id="ubicacion" class="py-20 bg-mist">
+  <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Ubicación, horarios y contacto</h2>
+      <ul class="mt-8 space-y-6">
+        <li class="flex gap-4"><i class="fa-solid fa-location-dot text-aqua text-xl mt-1 w-6"></i><div><p class="font-bold text-white">Dirección</p><p class="text-neutral-300">Villa Cerro, Higüey, República Dominicana</p></div></li>
+        <li class="flex gap-4"><i class="fa-solid fa-clock text-aqua text-xl mt-1 w-6"></i><div><p class="font-bold text-white">Horarios</p><p class="text-neutral-300">Martes: cerrado<br>Miércoles a viernes: 10:00 a. m. – 8:00 p. m.<br>Sábado a lunes: 10:00 a. m. – 9:00 p. m.</p></div></li>
+        <li class="flex gap-4"><i class="fa-solid fa-phone text-aqua text-xl mt-1 w-6"></i><div><p class="font-bold text-white">Teléfono</p><a href="tel:+18096629449" class="text-neutral-300 hover:text-aqua">(809) 662-9449</a></div></li>
+        <li class="flex gap-4"><i class="fa-brands fa-whatsapp text-aqua text-xl mt-1 w-6"></i><div><p class="font-bold text-white">WhatsApp</p><a href="https://wa.me/18096629449" target="_blank" rel="noopener" class="text-neutral-300 hover:text-aqua">(809) 662-9449</a></div></li>
+      </ul>
+      <a href="https://wa.me/18096629449" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-2 bg-emerald-500 text-white font-bold px-6 py-3 rounded-xl hover:bg-emerald-600 transition"><i class="fa-brands fa-whatsapp text-xl"></i> Escríbenos por WhatsApp</a>
+    </div>
+    <div class="rounded-2xl overflow-hidden border-2 border-red-600 h-80 lg:h-[26rem] bg-neutral-900">
+      <iframe title="Mapa de ubicación" class="w-full h-full border-0" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-68.76%2C18.58%2C-68.66%2C18.65&layer=mapnik"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-black text-slate-300 border-t-2 border-red-600">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid sm:grid-cols-3 gap-8">
+    <div>
+      <p class="text-white font-extrabold text-lg"><i class="fa-solid fa-droplet text-aqua mr-1"></i> De Greña Car Wash</p>
+      <p class="mt-3 text-sm">Lavado profesional para todo tipo de vehículos.</p>
+    </div>
+    <div>
+      <p class="text-white font-bold mb-3">Enlaces rápidos</p>
+      <ul class="space-y-2 text-sm"><li><a class="hover:text-aqua" href="#servicios">Servicios</a></li><li><a class="hover:text-aqua" href="#precios">Precios</a></li><li><a class="hover:text-aqua" href="#citas">Agendar cita</a></li><li><a class="hover:text-aqua" href="#ubicacion">Ubicación</a></li></ul>
+    </div>
+    <div>
+      <p class="text-white font-bold mb-3">Síguenos</p>
+      <div class="flex gap-3 text-lg">
+        <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full bg-neutral-800 border border-red-600 grid place-items-center hover:bg-aqua hover:text-white"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full bg-neutral-800 border border-red-600 grid place-items-center hover:bg-aqua hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok" class="w-10 h-10 rounded-full bg-neutral-800 border border-red-600 grid place-items-center hover:bg-aqua hover:text-white"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://wa.me/18096629449" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-neutral-800 border border-red-600 grid place-items-center hover:bg-aqua hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <p class="border-t border-red-600/60 text-center text-xs py-5">© <span id="year"></span> De Greña Car Wash. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+// ===== Datos de servicios (edita precios aquí) =====
+const SERVICIOS = [
+  { id: 'sencillo', nombre: 'Lavado sencillo', precio: 400 },
+  { id: 'express', nombre: 'Lavado express', precio: 600 },
+  { id: 'profundo', nombre: 'Lavado profundo y detallado', precio: 1500 },
+  { id: 'motor', nombre: 'Lavado de motor', precio: 700 },
+  { id: 'chasis', nombre: 'Lavado de chasis', precio: 800 },
+  { id: 'tapiceria', nombre: 'Tapicería', precio: 2000 }
+];
+const FACTOR = { motor: 0.6, auto: 1, suv: 1.3, otro: 1.8 };
+const VEHICULOS = { motor: 'Motor / Moto', auto: 'Auto sedán', suv: 'SUV / Camioneta', otro: 'Vehículo pesado u otro' };
+const money = n => 'RD$ ' + (Math.round(n / 50) * 50).toLocaleString('es-DO');
+
+const $ = s => document.querySelector(s);
+const form = $('#bookingForm');
+
+// ===== Menú móvil =====
+const menuBtn = $('#menuBtn'), mobileMenu = $('#mobileMenu');
+menuBtn.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('hidden') === false;
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobileMenu.classList.add('hidden');
+  menuBtn.setAttribute('aria-expanded', false);
+  menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+}));
+
+// ===== Scroll suave (con compensación del header fijo) =====
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const t = document.querySelector(a.getAttribute('href'));
+  if (!t) return;
+  e.preventDefault();
+  const y = t.getBoundingClientRect().top + window.scrollY - 68;
+  window.scrollTo({ top: y, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+}));
+
+// ===== Formulario: servicios, horas, fecha mínima =====
+$('#servicios-radio').innerHTML = SERVICIOS.map(s => `
+  <label class="svc flex items-center justify-between gap-3 border-[1.5px] border-red-600/70 rounded-xl px-4 py-3 cursor-pointer transition">
+    <span class="flex items-center gap-3"><input type="radio" name="servicio" value="${s.id}" class="accent-cyan-500 w-4 h-4"><span class="text-sm font-semibold">${s.nombre}</span></span>
+    <span class="text-xs font-bold text-neutral-400">desde ${money(s.precio)}</span>
+  </label>`).join('');
+
+const horaSel = $('#hora');
+// Horario: martes cerrado; miércoles a viernes 10–20 h; sábado a lunes 10–21 h
+function buildHoras(fecha) {
+  horaSel.innerHTML = '';
+  if (!fecha) return horaSel.insertAdjacentHTML('beforeend', '<option value="">Elige primero una fecha…</option>');
+  const dia = new Date(fecha + 'T00:00').getDay(); // 0 dom, 1 lun, 2 mar...
+  if (dia === 2) return horaSel.insertAdjacentHTML('beforeend', '<option value="">Cerrado los martes</option>');
+  const cierre = (dia >= 3 && dia <= 5) ? 20 : 21;
+  horaSel.insertAdjacentHTML('beforeend', '<option value="">Selecciona una hora…</option>');
+  for (let min = 10 * 60; min <= (cierre - 1) * 60; min += 30) {
+    const d = new Date(2000, 0, 1, Math.floor(min / 60), min % 60);
+    const t = d.toLocaleTimeString('es-DO', { hour: 'numeric', minute: '2-digit', hour12: true });
+    horaSel.insertAdjacentHTML('beforeend', `<option value="${t}">${t}</option>`);
+  }
+}
+buildHoras('');
+$('#fecha').addEventListener('change', e => buildHoras(e.target.value));
+const hoy = new Date(); hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
+$('#fecha').min = hoy.toISOString().split('T')[0];
+$('#year').textContent = new Date().getFullYear();
+
+// ===== Precio estimado =====
+function actualizarEstimado() {
+  const v = $('#vehiculo').value, s = form.servicio.value;
+  const box = $('#estimado');
+  if (!v || !s) return box.classList.add('hidden');
+  const base = SERVICIOS.find(x => x.id === s).precio;
+  $('#estimadoValor').textContent = money(base * FACTOR[v]);
+  box.classList.remove('hidden');
+}
+form.addEventListener('change', actualizarEstimado);
+
+// ===== Validación y envío =====
+function marcar(el, ok) {
+  const wrap = el.closest('div, fieldset');
+  const err = wrap.querySelector('.err');
+  if (el.classList) el.classList.toggle('invalid', !ok);
+  if (err) err.classList.toggle('hidden', ok);
+  return ok;
+}
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const checks = [
+    marcar($('#nombre'), $('#nombre').value.trim().split(/\s+/).filter(Boolean).length >= 2),
+    marcar($('#telefono'), $('#telefono').value.replace(/\D/g, '').length >= 10),
+    marcar($('#vehiculo'), !!$('#vehiculo').value),
+    marcar($('#servicios-radio'), !!form.servicio.value),
+    marcar($('#fecha'), !!$('#fecha').value && $('#fecha').value >= $('#fecha').min && new Date($('#fecha').value + 'T00:00').getDay() !== 2),
+    marcar($('#hora'), !!$('#hora').value)
+  ];
+  if (checks.includes(false)) {
+    const first = form.querySelector('.invalid, .err:not(.hidden)');
+    first?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    return;
+  }
+  const s = SERVICIOS.find(x => x.id === form.servicio.value);
+  const fecha = new Date($('#fecha').value + 'T00:00').toLocaleDateString('es-DO', { weekday: 'long', day: 'numeric', month: 'long' });
+  $('#exitoTexto').innerHTML = `Gracias, <strong>${$('#nombre').value.trim().split(' ')[0].replace(/[<>&]/g, '')}</strong>. Reservamos tu <strong>${s.nombre.toLowerCase()}</strong> para tu ${VEHICULOS[$('#vehiculo').value].toLowerCase()} el <strong>${fecha}</strong> a las <strong>${$('#hora').value}</strong>.<br>Te escribiremos por WhatsApp para confirmar.`;
+  form.classList.add('hidden');
+  $('#exito').classList.remove('hidden');
+  $('#citas').scrollIntoView({ behavior: 'smooth' });
+});
+$('#otraCita').addEventListener('click', () => {
+  form.reset(); buildHoras(''); actualizarEstimado();
+  $('#exito').classList.add('hidden');
+  form.classList.remove('hidden');
+});
+form.querySelectorAll('input, select').forEach(el => el.addEventListener('input', () => el.classList.remove('invalid')));
+</script>
+</body>
+</html>
